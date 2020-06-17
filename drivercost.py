@@ -14,7 +14,13 @@ with open(Sheet2) as f:
 pay_rates = []
 for i in second_sheet:
     if "Casual" in i[10]:
-        pay_rates.append([ i[0], round(float(i[7])*1.25,2)],)
+        # casual loading
+        #pay_rates.append([ i[0], round(float(i[7])*1.25,2)],)
+        # no casual loading
+        pay_rates.append([ i[0], round(float(i[7]),2)],)
+    elif "Salaried" in i[10]:
+        # pay_rates.append([ i[0], round(float(i[6])/max(float(i[8]),1),2)],)
+        pay_rates.append([i[0], round(float(i[6]) / 38  )],)
     else:
         pay_rates.append([ i[0], i[7]])
 
